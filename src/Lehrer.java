@@ -4,7 +4,9 @@ public class Lehrer {
     public String getKuerzel() {
         return kuerzel;
     }
+
+    //TODO: exportStundenplan
     public void exportStundenplan(){
-        
+
     }
 }
