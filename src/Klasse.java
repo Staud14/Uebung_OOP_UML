@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 
 import java.time.Period;
+import java.time.ZoneId;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -25,8 +26,8 @@ public class Klasse {
         LocalDate today = LocalDate.now();
 
         for(Schueler s: pupils){
-
-            durchschnittsalter += Period.between(pupils., today).getYears();
+            LocalDate birthDate = s.getGeburtsdatum().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            durchschnittsalter += Period.between(birthDate, today).getYears();
             cnt++;
         }
         return ((float)durchschnittsalter/(float)cnt);
