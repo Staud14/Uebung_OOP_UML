@@ -26,7 +26,7 @@ public class Klasse {
         LocalDate today = LocalDate.now();
 
         for(Schueler s: pupils){
-            LocalDate birthDate = s.getGeburtsdatum().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate birthDate = s.getGeburtsdatum();
             durchschnittsalter += Period.between(birthDate, today).getYears();
             cnt++;
         }
@@ -42,4 +42,7 @@ public class Klasse {
         return pupils.add(schueler);
     }
 
+    public Set<Schueler> getSchueler() {
+        return pupils;
+    }
 }
