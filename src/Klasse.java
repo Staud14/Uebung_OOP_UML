@@ -25,8 +25,13 @@ public class Klasse {
         LocalDate today = LocalDate.now();
 
         for(Schueler s: pupils){
+<<<<<<< HEAD
             LocalDate birthDate = s.getGeburtsdatum().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             ageSum += Period.between(birthDate, today).getYears();
+=======
+            LocalDate birthDate = s.getGeburtsdatum();
+            durchschnittsalter += Period.between(birthDate, today).getYears();
+>>>>>>> 7aa282a67202547a9c3076bec4385df4d955e193
             cnt++;
         }
         return ((float)ageSum/(float)cnt);
@@ -41,4 +46,7 @@ public class Klasse {
         return pupils.add(schueler);
     }
 
+    public Set<Schueler> getSchueler() {
+        return pupils;
+    }
 }
