@@ -57,7 +57,7 @@ public class Belegung {
 
     public void addFach(Fach newFach, int unterriEinheit, String wochentagKuerzel) throws InvalidAttributeValueException {
         wochentagKuerzel = wochentagKuerzel.toUpperCase();
-        if (wochentagKuerzel == "MO" || wochentagKuerzel == "DI" || wochentagKuerzel == "MI" || wochentagKuerzel == "DO" || wochentagKuerzel == "FR") {
+        if (wochentagKuerzel.equals("MO") || wochentagKuerzel.equals("DI") || wochentagKuerzel.equals("MI") || wochentagKuerzel.equals("DO") || wochentagKuerzel.equals("FR")) {
             if (unterriEinheit < 11) {
                 belegung.put(wochentagKuerzel + Integer.toString(unterriEinheit), newFach);
             }
@@ -66,11 +66,11 @@ public class Belegung {
         }
     }
 
-    public void removeFach(int unterriEinheit, String wochentagKuerzel){
+    public void removeFach(int unterriEinheit, String wochentagKuerzel) {
         belegung.remove(wochentagKuerzel + Integer.toString(unterriEinheit));
     }
 
-    public Fach getFach(int unterriEinheit, String wochentagKuerzel){
+    public Fach getFach(int unterriEinheit, String wochentagKuerzel) {
         return belegung.get(wochentagKuerzel + Integer.toString(unterriEinheit));
     }
 }
