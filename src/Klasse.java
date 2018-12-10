@@ -19,18 +19,17 @@ public class Klasse {
         return schulstufe;
     }
 
-    //TODO: getDurchschnittsalter
     public float getDurchschnittsalter(){
-        int durchschnittsalter = 0;
+        int ageSum = 0;
         int cnt = 0;
         LocalDate today = LocalDate.now();
 
         for(Schueler s: pupils){
             LocalDate birthDate = s.getGeburtsdatum().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            durchschnittsalter += Period.between(birthDate, today).getYears();
+            ageSum += Period.between(birthDate, today).getYears();
             cnt++;
         }
-        return ((float)durchschnittsalter/(float)cnt);
+        return ((float)ageSum/(float)cnt);
     }
 
     public boolean setKlassensprecher(Schueler schueler){
