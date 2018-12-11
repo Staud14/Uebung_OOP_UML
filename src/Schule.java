@@ -7,6 +7,7 @@ public class Schule {
     private String schultyp;
     private Lehrer direktor;
     private Schueler schulsprecher;
+    private Adresse standort;
 
     private ArrayList<NichtLehrpersonal> personal;
     private ArrayList<Abteilung> abteilungen;

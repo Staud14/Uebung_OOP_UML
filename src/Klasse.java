@@ -30,7 +30,7 @@ public class Klasse {
             durchschnittsalter += Period.between(birthDate, today).getYears();
             cnt++;
         }
-        return ((float)durchschnittsalter/(float)cnt);
+        return ((float)durchschnittsalter / (float)cnt);
     }
 
     public boolean setKlassensprecher(Schueler schueler){

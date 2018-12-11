@@ -6,8 +6,18 @@ public class Person {
     private String nachname;
     private LocalDate geburtsdatum;
     private String email;
-    private Adresse Wohnort;
+    private Adresse wohnort;
     private Klasse klasse;
+
+    public Person(long svnr, String vorname, String nachname,
+                  LocalDate geburtsdatumm, String email, Adresse wohnort){
+        this.svnr = svnr;
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.geburtsdatum = geburtsdatumm;
+        this.email = email;
+        this.wohnort = wohnort;
+    }
 
     public LocalDate getGeburtsdatum() {
         return geburtsdatum;
@@ -26,9 +36,8 @@ public class Person {
     }
 
     public Adresse getWohnort() {
-        return Wohnort;
+        return wohnort;
     }
-
 
     public long getSvnr() {
         return svnr;
