@@ -8,7 +8,8 @@ import java.util.Locale;
 
 public class Belegung {
     private int unterrichtsEinheit;
-    private Hashtable<String, Fach> belegung;            //Key: Wochentag kürzel + Unterrichtseinheit
+   private Raum raum;
+   private Fach fach;
 
     public Unterrichtstag getWochentag() {
         String s;
@@ -82,6 +83,10 @@ public class Belegung {
 
     }
 
+    private void setUnterrichtsEinheit(int i){
+        unterrichtsEinheit = i;
+    }
+
     public void addFach(Fach newFach, int unterriEinheit, String wochentagKuerzel) throws InvalidAttributeValueException {
         wochentagKuerzel = wochentagKuerzel.toUpperCase();
         if (wochentagKuerzel.equals("MO") || wochentagKuerzel.equals("DI") || wochentagKuerzel.equals("MI") || wochentagKuerzel.equals("DO") || wochentagKuerzel.equals("FR")) {
@@ -105,3 +110,6 @@ public class Belegung {
 enum Unterrichtstag {
     MONTAG, DIENSTAG, MITTWOCH, DONNERSTAG, FREITAG
 }
+
+//Belegung enthält 1 Fach und 1 Raum
+//Raum und Fach enthalten Hastabeles
