@@ -11,34 +11,38 @@ public class Klasse {
     private Schueler klassensprecher;
     private Set<Schueler> pupils = new TreeSet<Schueler>();
     private Set<Fach> lernt;
+    private Lehrer klassenvorstand;
+    private Fach fach = null;
+    private Klasse stammklasse;
+    private Abteilung abteilung;
 
     public String getBezeichnung() {
         return bezeichnung;
     }
 
-    public int getSchulstufe(){
+    public int getSchulstufe() {
         return schulstufe;
     }
 
-    public float getDurchschnittsalter(){
+    public float getDurchschnittsalter() {
         int ageSum = 0;
         int cnt = 0;
         LocalDate today = LocalDate.now();
 
-        for(Schueler s: pupils){
+        for (Schueler s : pupils) {
             LocalDate birthDate = s.getGeburtsdatum();
             ageSum += Period.between(birthDate, today).getYears();
             cnt++;
         }
-        return ((float)ageSum/(float)cnt);
+        return ((float) ageSum / (float) cnt);
     }
 
-    public boolean setKlassensprecher(Schueler schueler){
+    public boolean setKlassensprecher(Schueler schueler) {
         klassensprecher = schueler;
         return true;
     }
 
-    public boolean addSchueler(Schueler schueler){
+    public boolean addSchueler(Schueler schueler) {
         return pupils.add(schueler);
     }
 
@@ -46,9 +50,19 @@ public class Klasse {
         return pupils;
     }
 
-    //TODO: Connection to Schueler
-    //TODO: Connection to Lehrer
-    //TODO: Connection to Fach
-    //TODO: Connection to Raum
-    //TODO: Connection to Abteilung
+    public void setKlassenvorstand(Lehrer klassenvorstand) {
+        klassenvorstand = klassenvorstand;
+    }
+
+    public void setFach(Fach sFach) {
+        fach = sFach;
+    }
+
+    public void setStammklasse(Klasse Stammklasse) {
+        stammklasse = Stammklasse;
+    }
+
+    public void setAbteilung(Abteilung abteilung) {
+        this.abteilung = abteilung;
+    }
 }
