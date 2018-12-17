@@ -10,6 +10,7 @@ public class Klasse {
     private int schulstufe;
     private Schueler klassensprecher;
     private Set<Schueler> pupils = new TreeSet<Schueler>();
+    private Set<Fach> lernt;
 
     public String getBezeichnung() {
         return bezeichnung;
