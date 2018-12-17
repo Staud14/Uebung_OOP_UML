@@ -45,4 +45,10 @@ public class Klasse {
     public Set<Schueler> getSchueler() {
         return pupils;
     }
+
+    //TODO: Connection to Schueler
+    //TODO: Connection to Lehrer
+    //TODO: Connection to Fach
+    //TODO: Connection to Raum
+    //TODO: Connection to Abteilung
 }

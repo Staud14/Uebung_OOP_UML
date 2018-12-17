@@ -55,6 +55,33 @@ public class Belegung {
 
     }
 
+    private void setUnterrichtsEinheit(LocalTime time) {
+
+        if (time.isAfter(LocalTime.parse("7:50")) && time.isBefore(LocalTime.parse("8:40"))) {
+            unterrichtsEinheit = 1;
+        } else if (time.isAfter(LocalTime.parse("8:40")) && time.isBefore(LocalTime.parse("9:30"))) {
+            unterrichtsEinheit = 2;
+        } else if (time.isAfter(LocalTime.parse("9:40")) && time.isBefore(LocalTime.parse("10:30"))) {
+            unterrichtsEinheit = 3;
+        } else if (time.isAfter(LocalTime.parse("10:30")) && time.isBefore(LocalTime.parse("11:20"))) {
+            unterrichtsEinheit = 4;
+        } else if (time.isAfter(LocalTime.parse("11:20")) && time.isBefore(LocalTime.parse("12:10"))) {
+            unterrichtsEinheit = 5;
+        } else if (time.isAfter(LocalTime.parse("12:20")) && time.isBefore(LocalTime.parse("13:10"))) {
+            unterrichtsEinheit = 6;
+        } else if (time.isAfter(LocalTime.parse("13:10")) && time.isBefore(LocalTime.parse("14:00"))) {
+            unterrichtsEinheit = 7;
+        } else if (time.isAfter(LocalTime.parse("14:00")) && time.isBefore(LocalTime.parse("14:50"))) {
+            unterrichtsEinheit = 8;
+        } else if (time.isAfter(LocalTime.parse("15:00")) && time.isBefore(LocalTime.parse("15:50"))) {
+            unterrichtsEinheit = 9;
+        } else if (time.isAfter(LocalTime.parse("15:50")) && time.isBefore(LocalTime.parse("16:40"))) {
+            unterrichtsEinheit = 10;
+        }
+
+
+    }
+
     public void addFach(Fach newFach, int unterriEinheit, String wochentagKuerzel) throws InvalidAttributeValueException {
         wochentagKuerzel = wochentagKuerzel.toUpperCase();
         if (wochentagKuerzel.equals("MO") || wochentagKuerzel.equals("DI") || wochentagKuerzel.equals("MI") || wochentagKuerzel.equals("DO") || wochentagKuerzel.equals("FR")) {

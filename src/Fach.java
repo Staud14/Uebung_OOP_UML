@@ -3,6 +3,8 @@ public class Fach {
     private int wochenstunden;
     private Raumtyp raumanforderung;
 
+    //TODO: Connection to Lehrer
+    //TODO: Connection to Klasse
 
     public String getName() {
         return name;
