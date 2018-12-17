@@ -3,6 +3,7 @@ public class Fach {
     private int wochenstunden;
     private Raumtyp raumanforderung;
 
+
     public String getName() {
         return name;
     }
