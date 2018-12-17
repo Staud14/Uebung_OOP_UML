@@ -1,4 +1,4 @@
-public class Lehrer {
+public class Lehrer extends Mitarbeiter{
     private String kuerzel;
 
     public String getKuerzel() {
@@ -9,4 +9,10 @@ public class Lehrer {
     public void exportStundenplan(){
 
     }
+
+    //TODO: Connection to Fach
+    //TODO: Connection to Klasse
+    //TODO: Connection to Schule
+    //TODO: Connection to Abteilung
+
 }
