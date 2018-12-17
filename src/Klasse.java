@@ -65,4 +65,8 @@ public class Klasse {
     public void setAbteilung(Abteilung abteilung) {
         this.abteilung = abteilung;
     }
+
+    public void exportStundenplan(){                    //TODO: Export Stundenplan
+
+    }
 }
