@@ -21,11 +21,6 @@ public class Belegung {
         return raum.getKlasse();
     }
 
-    //TODO: Getter Lehrer
-    public Lehrer getLehrer() {
-
-    }
-
     //Everything for UnterrichtsEinheit
 
     public void setUnterrichtsEinheit() {

@@ -15,5 +15,6 @@ public class Lehrer extends Mitarbeiter{
     }
 
     //TODO: Connection to Klasse
+    //TODO: Connection to Fach
 
 }

@@ -33,7 +33,7 @@ public class Raum {
     public String getRaumNummer() {
         return raumNummer;
     }
-    
+
     public void exportBelegung() {
         Belegung jetzt;
         for (int day = 1; day < 8; day++) {
