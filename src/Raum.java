@@ -10,19 +10,22 @@ public class Raum {
     private int maxSitzplaetze;
     private Raumtyp raumtyp;
     private Hashtable<String, Belegung> belegung = new Hashtable<String, Belegung>();                   //Key: "Wochenkürzel englisch"  + Stundennummer      z.B.: 3Stunde am Dienstang TUE3
+    private Klasse klasse;
 
     //Constructors
-    public Raum(String raumNum, int maxSitpl, Raumtyp raumty, Hashtable<String, Belegung> x) {
+    public Raum(String raumNum, int maxSitpl, Raumtyp raumty, Hashtable<String, Belegung> x, Klasse klas) {
         raumNummer = raumNum;
         maxSitzplaetze = maxSitpl;
         raumtyp = raumty;
         belegung.putAll(x);
+        klasse = klas;
     }
 
-    public Raum(String raumNum, int maxSitpl, Raumtyp raumty) {
+    public Raum(String raumNum, int maxSitpl, Raumtyp raumty, Klasse klas) {
         raumNummer = raumNum;
         maxSitzplaetze = maxSitpl;
         raumtyp = raumty;
+        klasse = klas;
     }
 
 
@@ -30,10 +33,22 @@ public class Raum {
     public String getRaumNummer() {
         return raumNummer;
     }
-
-    //TODO: export Belegung
+    
     public void exportBelegung() {
-
+        Belegung jetzt;
+        for (int day = 1; day < 8; day++) {
+            for (int einheit = 1; einheit < 12; einheit++) {
+                jetzt = getBelegung(DayOfWeek.of(day),einheit);
+                System.out.print(DayOfWeek.of(day).getDisplayName(TextStyle.FULL, Locale.GERMAN) + "  ");
+                System.out.print(einheit + " Stunde  ");
+                if(jetzt != null){                                                                                //Auf Lehrer kann man in diesem UML Diagramm nicht zurückführen, da die "Klasse" nur ihren Klassenvorstand + Stellvertreter kennt.
+                    System.out.println(jetzt.getFach().getName());                                                //Es währe eine Verknüpfung zwischen Klasse und der Verknüpfung zwischen Lehrer und Fach nötig.
+                }
+                else{
+                    System.out.println("");
+                }
+                }
+        }
     }
 
     public int getMaxSitzplaetze() {
@@ -58,6 +73,14 @@ public class Raum {
 
     public void removeBelegung(DayOfWeek tag, int unterrichtsEinheit) {
         belegung.remove(tag.getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase() + unterrichtsEinheit);
+    }
+
+    public void setKlasse(Klasse klas) {
+        klasse = klas;
+    }
+
+    public Klasse getKlasse() {
+        return klasse;
     }
 }
 

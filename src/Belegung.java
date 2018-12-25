@@ -17,9 +17,8 @@ public class Belegung {
         return Unterrichtstag.valueOf(s);
     }
 
-    //TODO: Getter Klasse
     public Klasse getKlasse() {
-
+        return raum.getKlasse();
     }
 
     //TODO: Getter Lehrer
@@ -97,7 +96,7 @@ public class Belegung {
         fach = newFach;
     }
 
-    public Fach getFach(int unterriEinheit, String wochentagKuerzel) {
+    public Fach getFach() {
         return fach;
     }
 
