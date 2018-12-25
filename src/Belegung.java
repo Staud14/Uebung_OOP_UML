@@ -1,21 +1,19 @@
-import javax.management.InvalidAttributeValueException;
-import java.time.LocalDate;
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.time.format.TextStyle;
-import java.util.Hashtable;
 import java.util.Locale;
 
+//Belegung enthält 1 Fach und 1 Raum
+//Raum und Fach enthalten Hastabeles
 
 public class Belegung {
     private int unterrichtsEinheit;
-   private Raum raum;
-   private Fach fach;
+    private Raum raum;
+    private Fach fach;
+    private DayOfWeek unterrichtsTag;
 
     public Unterrichtstag getWochentag() {
-        String s;
-        LocalDate date = LocalDate.now();
-
-        s = date.getDayOfWeek().getDisplayName(TextStyle.FULL, new Locale("de")).toUpperCase();
+        String s = unterrichtsTag.getDisplayName(TextStyle.FULL, new Locale("de")).toUpperCase();
         return Unterrichtstag.valueOf(s);
     }
 
@@ -29,7 +27,9 @@ public class Belegung {
 
     }
 
-    private void setUnterrichtsEinheit() {
+    //Everything for UnterrichtsEinheit
+
+    public void setUnterrichtsEinheit() {
         LocalTime time = LocalTime.now();
         if (time.isAfter(LocalTime.parse("7:50")) && time.isBefore(LocalTime.parse("8:40"))) {
             unterrichtsEinheit = 1;
@@ -56,7 +56,7 @@ public class Belegung {
 
     }
 
-    private void setUnterrichtsEinheit(LocalTime time) {
+    public void setUnterrichtsEinheit(LocalTime time) {
 
         if (time.isAfter(LocalTime.parse("7:50")) && time.isBefore(LocalTime.parse("8:40"))) {
             unterrichtsEinheit = 1;
@@ -83,33 +83,45 @@ public class Belegung {
 
     }
 
-    private void setUnterrichtsEinheit(int i){
+    public void setUnterrichtsEinheit(int i) {
         unterrichtsEinheit = i;
     }
 
-    public void addFach(Fach newFach, int unterriEinheit, String wochentagKuerzel) throws InvalidAttributeValueException {
-        wochentagKuerzel = wochentagKuerzel.toUpperCase();
-        if (wochentagKuerzel.equals("MO") || wochentagKuerzel.equals("DI") || wochentagKuerzel.equals("MI") || wochentagKuerzel.equals("DO") || wochentagKuerzel.equals("FR")) {
-            if (unterriEinheit < 11) {
-                belegung.put(wochentagKuerzel + Integer.toString(unterriEinheit), newFach);
-            }
-        } else {
-            throw new InvalidAttributeValueException();
-        }
+    public int getUnterrichtsEinheit(){
+        return unterrichtsEinheit;
     }
 
-    public void removeFach(int unterriEinheit, String wochentagKuerzel) {
-        belegung.remove(wochentagKuerzel + Integer.toString(unterriEinheit));
+
+    //Everything for Fach
+    public void addFach(Fach newFach) {
+        fach = newFach;
     }
 
     public Fach getFach(int unterriEinheit, String wochentagKuerzel) {
-        return belegung.get(wochentagKuerzel + Integer.toString(unterriEinheit));
+        return fach;
+    }
+
+
+    //Everything for unterrichtsTag
+    public void setUnterrichtsTag(DayOfWeek x) {
+        unterrichtsTag = x;
+    }
+
+    public DayOfWeek getUnterrichtsTag() {
+        return unterrichtsTag;
+    }
+
+    //Everything for Raum
+    public void setRaum(Raum x) {
+        raum = x;
+    }
+
+    public Raum getRaum() {
+        return raum;
     }
 }
 
 enum Unterrichtstag {
-    MONTAG, DIENSTAG, MITTWOCH, DONNERSTAG, FREITAG
+    MONTAG, DIENSTAG, MITTWOCH, DONNERSTAG, FREITAG, SAMSTAG, SONNTAG
 }
 
-//Belegung enthält 1 Fach und 1 Raum
-//Raum und Fach enthalten Hastabeles
