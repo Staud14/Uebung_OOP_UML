@@ -41,8 +41,9 @@ public class Raum {
                 jetzt = getBelegung(DayOfWeek.of(day),einheit);
                 System.out.print(DayOfWeek.of(day).getDisplayName(TextStyle.FULL, Locale.GERMAN) + "  ");
                 System.out.print(einheit + " Stunde  ");
-                if(jetzt != null){                                                                                //Auf Lehrer kann man in diesem UML Diagramm nicht zurückführen, da die "Klasse" nur ihren Klassenvorstand + Stellvertreter kennt.
-                    System.out.println(jetzt.getFach().getName());                                                //Es währe eine Verknüpfung zwischen Klasse und der Verknüpfung zwischen Lehrer und Fach nötig.
+                if(jetzt != null){
+                    System.out.print(jetzt.getLehrer().getKuerzel());
+                    System.out.println(jetzt.getFach().getName());
                 }
                 else{
                     System.out.println("");

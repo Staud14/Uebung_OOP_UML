@@ -1,9 +1,6 @@
 import java.time.DayOfWeek;
 import java.time.format.TextStyle;
-import java.util.LinkedHashSet;
-import java.util.Locale;
-import java.util.Set;
-import java.util.Hashtable;
+import java.util.*;
 
 
 public class Fach {
@@ -12,7 +9,7 @@ public class Fach {
     private Raumtyp raumanforderung;
     private Set<Klasse> klasse = new LinkedHashSet<Klasse>();
     private Set<Lehrer> lehrer = new LinkedHashSet<Lehrer>();
-    private Hashtable<String, Belegung> belegung = new Hashtable<String, Belegung>();                   //Key: "Wochenkürzel englisch"  + Stundennummer      z.B.: 3Stunde am Dienstang TUE3
+    private List<Belegung> belegung = new LinkedList<Belegung>();                   //Key: "Wochenkürzel englisch"  + Stundennummer      z.B.: 3Stunde am Dienstang TUE3
 
     public String getName() {
         return name;
@@ -43,14 +40,14 @@ public class Fach {
     }
 
     public void addBelegung(Belegung bel) {
-        belegung.put((bel.getUnterrichtsTag().getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase() + bel.getUnterrichtsEinheit()), bel);
+        belegung.add(bel);
     }
 
-    public Belegung getBelegung(DayOfWeek tag, int unterrichtsEinheit) {
-        return belegung.get(tag.getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase() + unterrichtsEinheit);
+    public List<Belegung> getBelegung() {
+        return belegung;
     }
 
-    public void removeBelegung(DayOfWeek tag, int unterrichtsEinheit) {
-        belegung.remove(tag.getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase() + unterrichtsEinheit);
+    public void removeBelegung(Belegung toRemove) {
+        belegung.remove(toRemove);
     }
 }

@@ -11,6 +11,7 @@ public class Belegung {
     private Raum raum;
     private Fach fach;
     private DayOfWeek unterrichtsTag;
+    private Lehrer lehrer;
 
     public Unterrichtstag getWochentag() {
         String s = unterrichtsTag.getDisplayName(TextStyle.FULL, new Locale("de")).toUpperCase();
@@ -112,6 +113,16 @@ public class Belegung {
 
     public Raum getRaum() {
         return raum;
+    }
+
+    //Everything for Lehrer
+
+    public void setLehrer(Lehrer lehrer) {
+        this.lehrer = lehrer;
+    }
+
+    public Lehrer getLehrer(){
+        return lehrer;
     }
 }
 
