@@ -66,7 +66,7 @@ public class Klasse {
         this.abteilung = abteilung;
     }
 
-    public void exportStundenplan(){                    //TODO: Export Stundenplan
-
+    public void exportStundenplan(){                    //Da laut UML Diagramm jede Klasse nur in einem Raum sein kann entspricht die Raumbelegung auch den Stundenplan.
+        stammklasse.exportStundenplan();                //Es währe eine 1:n Beziehung zw. Klasse und Raum sinvoller, da in der Belegung die Klasse gespeichert ist und amn daher den Stundenplan rausfiltern kann.
     }
 }

@@ -1,20 +1,75 @@
 import java.util.Set;
+import java.util.TreeSet;
 
-public class Lehrer extends Mitarbeiter{
+public class Lehrer extends Mitarbeiter {
     private String kuerzel;
-    private Set<Fach> unteritsfächer;
+    private Set<Fach> unteritsfächer = new TreeSet<Fach>();
+    private Klasse[] klassen = {null, null};
 
 
     public String getKuerzel() {
         return kuerzel;
     }
 
+    public void addKlasse(Klasse newKlass) throws ArrayIndexOutOfBoundsException {
+        if (klassen[0] != null) {
+            klassen[0] = newKlass;
+        } else if (klassen[1] != null) {
+            klassen[1] = newKlass;
+        } else {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+    }
+
+    public boolean removeKlasse(Klasse toRemove) {
+        for (Klasse now : klassen) {
+            if (now == toRemove) {
+                now = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removeKlasse(int indexOfToRemove) {
+        if (indexOfToRemove < 3) {
+            klassen[indexOfToRemove] = null;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     //TODO: exportStundenplan
-    public void exportStundenplan(){
+    public void exportStundenplan() {
 
     }
 
-    //TODO: Connection to Klasse
-    //TODO: Connection to Fach
+
+    public void addFach(Fach newFach){
+        unteritsfächer.add(newFach);
+    }
+
+    public  void removeFach(Fach toRemove){
+        unteritsfächer.remove(toRemove);
+    }
+
+    public void removeFach(String toRemove){
+        Fach goingToRemove = null;
+
+        for(Fach x : unteritsfächer){
+            if(x.getName().equals(toRemove)){
+                goingToRemove = x;
+            }
+        }
+
+        if(goingToRemove != null){
+            unteritsfächer.remove(goingToRemove);
+        }
+
+    }
+
+    //TODO: Für Christian das XOR
+
 
 }
