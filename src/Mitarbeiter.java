@@ -1,5 +1,5 @@
 public class Mitarbeiter extends Person {
-    private int anzahl;
+    private static int anzahl = 0;
 
     public Mitarbeiter()
     {
