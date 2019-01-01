@@ -19,7 +19,7 @@ public class Schule {
 
     public boolean addAbteilung(String name, String kuerzel)
     {
-        return abteilungen.add(new Abteilung(name,kuerzel));
+        return abteilungen.add(new Abteilung(name,kuerzel,this));
     }
 
     public Lehrer getDirektor() {

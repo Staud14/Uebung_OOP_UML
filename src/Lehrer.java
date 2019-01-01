@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.*;
 
@@ -5,6 +6,13 @@ public class Lehrer extends Mitarbeiter {
     private String kuerzel;
     private Set<Fach> unteritsfächer = new TreeSet<Fach>();
     private Klasse[] klassen = {null, null};
+
+
+    public Lehrer(long svnr, String vorname, String nachname,
+                  LocalDate geburtsdatumm, String email, Adresse wohnort) {
+
+        super(svnr, vorname, nachname, geburtsdatumm, email, wohnort);
+    }
 
 
     public String getKuerzel() {
