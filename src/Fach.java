@@ -5,11 +5,20 @@ import java.util.*;
 
 public class Fach {
     private String name;
-    private int wochenstunden;
+    private int wochenstunden;                                               //Laut UML Diagramm haben alle Schulstufen die gleiche Stundenanzahl. Lösung z.B. Hashtable key: Schulstufe    value: Wochenstundenanzahl
     private Raumtyp raumanforderung;
-    private Set<Klasse> klasse = new LinkedHashSet<Klasse>();
-    private Set<Lehrer> lehrer = new LinkedHashSet<Lehrer>();
-    private List<Belegung> belegung = new LinkedList<Belegung>();                   //Key: "Wochenkürzel englisch"  + Stundennummer      z.B.: 3Stunde am Dienstang TUE3
+    private Set<Klasse> klasse = new LinkedHashSet<Klasse>();                     //Kein TreeSet, da kein Komparator vorhanden
+    private Set<Lehrer> lehrer = new LinkedHashSet<Lehrer>();                     // - || -
+    private List<Belegung> belegung = new LinkedList<Belegung>();
+
+    public Fach(String nam, int wochenstd, Raumtyp raum, Set<Klasse> klas, Set<Lehrer> leh, Set<Belegung> bel){
+        name = nam;
+        wochenstunden = wochenstd;
+        raumanforderung=raum;
+        klasse.addAll(klas);
+        lehrer.addAll(leh);
+        belegung.addAll(bel);
+    }
 
     public String getName() {
         return name;

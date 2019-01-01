@@ -4,14 +4,16 @@ import java.util.*;
 
 public class Lehrer extends Mitarbeiter {
     private String kuerzel;
-    private Set<Fach> unteritsfächer = new TreeSet<Fach>();
+    private Set<Fach> unteritsfaecher = new HashSet<>();
     private Klasse[] klassen = {null, null};
 
 
     public Lehrer(long svnr, String vorname, String nachname,
-                  LocalDate geburtsdatumm, String email, Adresse wohnort) {
+                  LocalDate geburtsdatumm, String email, Adresse wohnort, String kuerzl, Set<Fach> untFaecher) {
 
         super(svnr, vorname, nachname, geburtsdatumm, email, wohnort);
+        kuerzel = kuerzl;
+        unteritsfaecher.addAll(untFaecher);
     }
 
 
@@ -66,7 +68,7 @@ public class Lehrer extends Mitarbeiter {
             }
         }
 
-        for (Fach x : unteritsfächer) {                   //Alle Unterrichtsstunden des Lehrers suchen
+        for (Fach x : unteritsfaecher) {                   //Alle Unterrichtsstunden des Lehrers suchen
             for (Belegung y : x.getBelegung()) {
                 if (y.getLehrer().equals(kuerzel)) {
                     belegung.add(y);
@@ -93,24 +95,24 @@ public class Lehrer extends Mitarbeiter {
 
 
     public void addFach(Fach newFach) {
-        unteritsfächer.add(newFach);
+        unteritsfaecher.add(newFach);
     }
 
     public void removeFach(Fach toRemove) {
-        unteritsfächer.remove(toRemove);
+        unteritsfaecher.remove(toRemove);
     }
 
     public void removeFach(String toRemove) {
         Fach goingToRemove = null;
 
-        for (Fach x : unteritsfächer) {
+        for (Fach x : unteritsfaecher) {
             if (x.getName().equals(toRemove)) {
                 goingToRemove = x;
             }
         }
 
         if (goingToRemove != null) {
-            unteritsfächer.remove(goingToRemove);
+            unteritsfaecher.remove(goingToRemove);
         }
 
     }

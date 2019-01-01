@@ -13,6 +13,14 @@ public class Belegung {
     private DayOfWeek unterrichtsTag;
     private Lehrer lehrer;
 
+    public Belegung(int unterrichtsEinh, Raum rau, Fach fa, DayOfWeek untTag, Lehrer lehr){
+        unterrichtsEinheit = unterrichtsEinh;
+        raum = rau;
+        fach = fa;
+        unterrichtsTag = untTag;
+        lehrer = lehr;
+    }
+
     public Unterrichtstag getWochentag() {
         String s = unterrichtsTag.getDisplayName(TextStyle.FULL, new Locale("de")).toUpperCase();
         return Unterrichtstag.valueOf(s);
