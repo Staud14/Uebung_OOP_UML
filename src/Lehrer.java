@@ -87,6 +87,8 @@ public class Lehrer extends Mitarbeiter {
                     tmp_day.add(x);
                 }
             }
+
+            //Sortiert nach Stunden
             for(int z = 0; z < 15; z++){
                 for(Belegung x : tmp_day){
                     tmp_hour.add(x);
