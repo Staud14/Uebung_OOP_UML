@@ -1,3 +1,4 @@
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.*;
@@ -61,6 +62,9 @@ public class Lehrer extends Mitarbeiter {
     public void exportStundenplan() {
         String[] classes = {null, null};
         List<Belegung> belegung = new LinkedList<Belegung>();
+        List<Belegung> tmp_day = new LinkedList<Belegung>();
+        List<Belegung> tmp_hour = new LinkedList<Belegung>();
+        List<Belegung> sorted = new LinkedList<Belegung>();
 
         for (int x = 0; x < classes.length; x++) {
             if (klassen[x] != null) {
@@ -76,7 +80,26 @@ public class Lehrer extends Mitarbeiter {
             }
         }
 
-        //TODO: Sortierung der Belegung nach Tag und Unterrichtseineheit
+        //Sortiern nach Tag
+        for (int i = 1; i < 8; i++) {               //Iteriert über gesamte Raumbelegung
+            for (Belegung x : belegung) {
+                if (x.getUnterrichtsTag().getValue() == i){
+                    tmp_day.add(x);
+                }
+            }
+            for(int z = 0; z < 15; z++){
+                for(Belegung x : tmp_day){
+                    tmp_hour.add(x);
+                }
+            }
+            sorted.addAll(tmp_hour);
+            tmp_day.clear();
+            tmp_hour.clear();
+        }
+
+        belegung.clear();
+        belegung.addAll(sorted);
+
 
         for (Belegung x : belegung) {
             System.out.print(x.getUnterrichtsTag().getDisplayName(TextStyle.FULL, Locale.GERMAN));
@@ -116,8 +139,6 @@ public class Lehrer extends Mitarbeiter {
         }
 
     }
-
-    //TODO: Für Christian das XOR
 
 
 }
