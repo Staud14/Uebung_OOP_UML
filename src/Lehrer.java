@@ -6,7 +6,7 @@ import java.util.*;
 public class Lehrer extends Mitarbeiter {
     private String kuerzel;
     private Set<Fach> unteritsfaecher = new HashSet<>();
-    private Klasse[] klassen = {null, null};
+    private Klasse[] klassen = {null, null};                        //Lehrer kann nur 2 Klassen unterrichten laut UML Diagramm.
 
 
     public Lehrer(long svnr, String vorname, String nachname,
