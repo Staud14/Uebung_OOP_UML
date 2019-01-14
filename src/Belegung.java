@@ -4,7 +4,10 @@ import java.time.format.TextStyle;
 import java.util.Locale;
 
 //Belegung enthält 1 Fach und 1 Raum
-//Raum und Fach enthalten Hastabeles
+//Raum und Fach enthalten Listen auf ihre Belegungen
+//Keine unidirectionale verbindung sondern bidirectional, da ansonst kein Lehrer.exportStundenplan() möglich.
+
+//Lehrer hinzugefügt für eindeutige Zuweisung
 
 public class Belegung {
     private int unterrichtsEinheit;
@@ -134,6 +137,7 @@ public class Belegung {
     }
 }
 
+//Sinvoller mit DayOfWeek, da diese bereits sinvolle funtionen enthält.
 enum Unterrichtstag {
     MONTAG, DIENSTAG, MITTWOCH, DONNERSTAG, FREITAG, SAMSTAG, SONNTAG
 }

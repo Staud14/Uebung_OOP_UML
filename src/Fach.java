@@ -1,5 +1,3 @@
-import java.time.DayOfWeek;
-import java.time.format.TextStyle;
 import java.util.*;
 
 
@@ -7,7 +5,7 @@ public class Fach {
     private String name;
     private int wochenstunden;                                               //Laut UML Diagramm haben alle Schulstufen die gleiche Stundenanzahl. Lösung z.B. Hashtable key: Schulstufe    value: Wochenstundenanzahl
     private Raumtyp raumanforderung;
-    private Set<Klasse> klasse = new LinkedHashSet<Klasse>();                     //Kein TreeSet, da kein Komparator vorhanden
+    private Set<Klasse> klasse = new LinkedHashSet<Klasse>();                     //Kein TreeSet, da kein Komparator vorhanden      LinedHashSet, um doppelte speicherung zu vermeiden, sowie Einfügereinfolge zu behalten
     private Set<Lehrer> lehrer = new LinkedHashSet<Lehrer>();                     // - || -
     private List<Belegung> belegung = new LinkedList<Belegung>();
 
