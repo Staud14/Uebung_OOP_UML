@@ -7,7 +7,7 @@ import java.util.TreeSet;
 public class Main {
     public static void main(String[] args) {
         Random rand = new Random();
-        //Fach[] fächer = [new Fach("FSST",5, Raumtyp.KLASSENZIMMER)];
+        Fach fsst = new Fach("FSST",5, Raumtyp.KLASSENZIMMER,null,null);
         Set<Fach> pfefferfaecher = new TreeSet<>();
         Schule schule = new Schule("HTL St.Pölten",5,"HTL",
                 new Lehrer(rand.nextLong(),"Matin","Pfeffel",
@@ -34,8 +34,11 @@ public class Main {
                 Schueler klassensp = new Schueler(rand.nextLong(),"Florian","Höllerer",LocalDate.of(178,Month.FEBRUARY,7),"florian@hoellerer@htlstp.at",
                         new Adresse("ort","Straße",0,0),4,LocalDate.of(1342,Month.JUNE,7));
                 schueler.add(klassensp);
-                abteilung.addKlasse(new Klasse("4AHELS", 8,crha,schueler,new Raum("W213",24,Raumtyp.KLASSENZIMMER,null),abteilung,klassensp));
-
+                Raum w213 = new Raum("W213",24,Raumtyp.KLASSENZIMMER,null);
+                Klasse h4a = new Klasse("4AHELS", 8,crha,schueler,w213,abteilung,klassensp);
+                w213.setKlasse(h4a);
+                w213.addBelegung(new Belegung(9,w213,));
+                abteilung.addKlasse(h4a);
             } else if(abteilung.getKuerzel() == "ET")
             {
                 Lehrer av = new Lehrer(rand.nextLong(),"ETavVN","ETavNN", LocalDate.of(4212,Month.FEBRUARY,7),"ETavEmail",
