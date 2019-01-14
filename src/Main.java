@@ -31,9 +31,10 @@ public class Main {
                 TreeSet<Schueler> schueler = new TreeSet<>();
                 schueler.add(new Schueler(rand.nextLong(),"Christian", "Schrefl", LocalDate.of(2000,Month.DECEMBER, 6),"christian.schrefl@htlstp.at",
                         new Adresse("St. Pölten","Hofeckergasse",7,3100),17,new LocalDate(201)));
-                Schueler klassensp = new Schueler();
+                Schueler klassensp = new Schueler(rand.nextLong(),"Florian","Höllerer",LocalDate.of(178,Month.FEBRUARY,7),"florian@hoellerer@htlstp.at",
+                        new Adresse("ort","Straße",0,0),4,LocalDate.of(1342,Month.JUNE,7));
                 schueler.add(klassensp);
-                abteilung.addKlasse(new Klasse("4AHELS", 8,crha,schueler,new Raum(),abteilung,klassensp));
+                abteilung.addKlasse(new Klasse("4AHELS", 8,crha,schueler,new Raum("W213",24,Raumtyp.KLASSENZIMMER,null),abteilung,klassensp));
 
             } else if(abteilung.getKuerzel() == "ET")
             {
