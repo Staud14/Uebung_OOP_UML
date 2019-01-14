@@ -12,7 +12,7 @@ public class Klasse {
     private Set<Schueler> pupils = new TreeSet<Schueler>();
     private Lehrer klassenvorstand;
     private Fach fach = null;                                                                           //aktuelles Fach
-    private Klasse stammklasse;
+    private Raum stammklasse;
     private Abteilung abteilung;
 
     public Klasse(String bez, int schulstf) {
@@ -20,7 +20,7 @@ public class Klasse {
         schulstufe = schulstf;
     }
 
-    public Klasse(String bez, int schulstf, Lehrer kv, TreeSet<Schueler> pup, Klasse stamk, Abteilung abt, Schueler klassensp){
+    public Klasse(String bez, int schulstf, Lehrer kv, TreeSet<Schueler> pup, Raum stamk, Abteilung abt, Schueler klassensp){
         bezeichnung = bez;
         schulstufe = schulstf;
         klassenvorstand = kv;

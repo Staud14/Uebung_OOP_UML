@@ -23,6 +23,18 @@ public class Main {
                 abteilung.addLehrer(k);
                 abteilung.setAbteilungsvorstand(k);
 
+                abteilung.addLehrer(new Lehrer(rand.nextLong(), "Martin", "Weigl", LocalDate.of(500,Month.MAY,8),"",
+                        new Adresse("","",0,0),"WEIG", new TreeSet<Fach>()));
+                Lehrer crha = new Lehrer(rand.nextLong(),"Christian", "Crha", LocalDate.of(831, Month.JANUARY,27), "",
+                        new Adresse("St. Poelten","",0,3100), "CRHA", new TreeSet<Fach>());
+
+                TreeSet<Schueler> schueler = new TreeSet<>();
+                schueler.add(new Schueler(rand.nextLong(),"Christian", "Schrefl", LocalDate.of(2000,Month.DECEMBER, 6),"christian.schrefl@htlstp.at",
+                        new Adresse("St. Pölten","Hofeckergasse",7,3100),17,new LocalDate(201)));
+                Schueler klassensp = new Schueler();
+                schueler.add(klassensp);
+                abteilung.addKlasse(new Klasse("4AHELS", 8,crha,schueler,new Raum(),abteilung,klassensp));
+
             } else if(abteilung.getKuerzel() == "ET")
             {
                 Lehrer av = new Lehrer(rand.nextLong(),"ETavVN","ETavNN", LocalDate.of(4212,Month.FEBRUARY,7),"ETavEmail",

@@ -49,6 +49,10 @@ public class Abteilung {
     {
         return this.lehrer.add(lehrer);
     }
+    public boolean addKlasse(Klasse klasse)
+    {
+        return this.klassen.add(klasse);
+    }
 
     public ArrayList<Klasse> getKlassen() {
         return klassen;
