@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class Schule {
     private String name;
-    private Long schulkennzahl;
+    private long schulkennzahl;
     private String schultyp;
     private Lehrer direktor;
     private Schueler schulsprecher;
@@ -11,6 +11,17 @@ public class Schule {
 
     private ArrayList<NichtLehrpersonal> personal;
     private ArrayList<Abteilung> abteilungen;
+
+    public Schule(String name, long schulkennzahl, String schultyp, Lehrer direktor, Adresse standort){
+        this.name=name;
+        this.schulkennzahl=schulkennzahl;
+        this.schultyp=schultyp;
+        this.direktor=direktor;
+        this.schulsprecher=null;
+        this.standort=standort;
+        personal = new ArrayList<>();
+        abteilungen = new ArrayList<>();
+    }
 
     public boolean addPersonal(NichtLehrpersonal personal)
     {
